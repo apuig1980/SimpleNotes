@@ -1,5 +1,8 @@
 # SimpleNotes
 
+This is my first native Android project.
+I want to make a simple notes/task application.
+
 Next features:
 
   1 - Delete notes
