@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="top"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,15 +10,17 @@
         android:id="@+id/tvNoteTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="top"
+        android:layout_gravity="center"
         android:text="NOTA"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/tvNoteBody"
-        android:gravity="center"
+        android:gravity="top"
         android:text="Descipción de la nota"
-        android:textSize="16sp"
+        android:layout_margin="20sp"
+        android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
