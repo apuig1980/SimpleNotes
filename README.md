@@ -8,14 +8,12 @@ Next features:
 
   1 - ~~Delete notes.~~
 	
-  2 - Add new notes
+  2 - ~~Add new notes~~
+  
+  3 - Edit Notes text
 	
-  3 - Persist notes
-	
-  4 - Mark notes as completed
+  4 - Persist notes
 	
   5 - Register creation date
 	
-  6 - Register completion date
-	
-  7 - Add ads to application
+  6 - Add ads to application
