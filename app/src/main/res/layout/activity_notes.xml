@@ -19,6 +19,17 @@
         android:text="LOGOUT"
         android:gravity="center"
         android:layout_margin="10dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageButton
+        android:id="@+id/ibAddNote"
+        android:textSize="20sp"
+        android:background="@drawable/plus"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

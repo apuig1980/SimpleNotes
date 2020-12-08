@@ -26,15 +26,15 @@ public class SplashActivity extends BaseActivity {
             public void run() {
 
 
-                boolean userLogged = prefs.getPrefs(Constants.USER_LOGGED);
+              //  boolean userLogged = prefs.getPrefs(Constants.USER_LOGGED);
 
                 Intent intent;
 
-                if (userLogged) {
+                //if (userLogged) {
                     intent = new Intent(SplashActivity.this, NotesActivity.class);
-                } else {
-                    intent = new Intent(SplashActivity.this, LoginActivity.class);
-                }
+               //} else {
+                    //intent = new Intent(SplashActivity.this, LoginActivity.class);
+               // }
 
                 startActivity(intent);
                 finish();

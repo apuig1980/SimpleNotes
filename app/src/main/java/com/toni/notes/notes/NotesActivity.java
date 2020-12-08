@@ -26,23 +26,36 @@ public class NotesActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        setRecyclerView();
 
-        setLogoutEvents();
+        populateNoteList();
+
+        initializeAddNoteButton();
+
+        setRecyclerView();
     }
 
-    private void populateNoteList(){
+    private void populateNoteList()
+    {
         notes = new ArrayList<>();
-
         for (int i = 0; i < 5; i++){
             notes.add(new Note("Pasear perro" + i , "Hace mucho tiempo que no sale"));
         }
     }
 
-    private void setRecyclerView() {
+    private void initializeAddNoteButton() {
+        ImageButton btAddNote = findViewById(R.id.ibAddNote);
 
-        populateNoteList();
+        btAddNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notes.add(0, new Note("New Note","Description"));
+                setRecyclerView();
+            }
+        });
+    }
 
+    private void setRecyclerView()
+    {
         rvNotes = findViewById(R.id.rvNotes);
 
         NotesAdapter adapter = new NotesAdapter(notes, NotesActivity.this);
@@ -53,9 +66,16 @@ public class NotesActivity extends BaseActivity
         rvNotes.setHasFixedSize(true);
     }
 
+    /*private void showList()
+    {
+        setRecyclerView();
+
+        //setLogoutEvents();
+    }*/
 
 
-    private void setLogoutEvents() {
+
+    /*private void setLogoutEvents() {
         Button btLogout = findViewById(R.id.btLogout);
 
         btLogout.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +86,5 @@ public class NotesActivity extends BaseActivity
                 startActivity(intent);
             }
         });
-    }
+    }*/
 }
