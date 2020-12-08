@@ -1760,6 +1760,7 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id ibDelete
 id icon
 id icon_group
 id ifRoom

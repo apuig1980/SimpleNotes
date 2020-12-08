@@ -2,6 +2,7 @@ package com.toni.notes.notes;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,21 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
                 ctx.startActivity(intent);
             }
         });
+
+        holder.ibDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notes.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, notes.size());
+            }
+        });
+    }
+
+
+
+    private void refreshView() {
+
     }
 
     @Override
