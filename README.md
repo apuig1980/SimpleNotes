@@ -10,7 +10,7 @@ Next features:
 	
   2 - ~~Add new notes~~
   
-  3 - Edit Notes text
+  3 - ~~Edit Notes text~~
 	
   4 - Persist notes
 	
