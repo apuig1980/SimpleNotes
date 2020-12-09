@@ -9,23 +9,25 @@ import android.widget.ImageButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.toni.notes.BaseActivity;
 import com.toni.notes.LoginActivity;
 import com.toni.notes.R;
 import com.toni.notes.notes.models.Note;
 import com.toni.notes.utils.Constants;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class NotesActivity extends BaseActivity
-{
+public class NotesActivity extends BaseActivity {
     RecyclerView rvNotes;
     ArrayList<Note> notes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-
 
         populateNoteList();
 
@@ -34,28 +36,35 @@ public class NotesActivity extends BaseActivity
         setRecyclerView();
     }
 
-    private void populateNoteList()
-    {
+    private void populateNoteList() {
         notes = new ArrayList<>();
-        for (int i = 0; i < 5; i++){
-            notes.add(new Note("Pasear perro" + i , "Hace mucho tiempo que no sale"));
+        for (int i = 0; i < 5; i++) {
+            notes.add(new Note("Pasear perro" + i, "Hace mucho tiempo que no sale"));
         }
     }
 
     private void initializeAddNoteButton() {
         ImageButton btAddNote = findViewById(R.id.ibAddNote);
 
+
         btAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                notes.add(0, new Note("New Note","Description"));
+                notes.add(0, new Note("New Note", "Description"));
                 setRecyclerView();
+                saveNewNote();
             }
         });
     }
 
-    private void setRecyclerView()
-    {
+    private void saveNewNote(){
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Note>>() {
+        }.getType();
+        String json = gson.toJson(notes, type);
+    }
+
+    private void setRecyclerView() {
         rvNotes = findViewById(R.id.rvNotes);
 
         NotesAdapter adapter = new NotesAdapter(notes, NotesActivity.this);
