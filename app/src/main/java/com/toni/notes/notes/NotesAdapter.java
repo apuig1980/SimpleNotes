@@ -58,11 +58,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
     }
 
 
-
-    private void refreshView() {
-
-    }
-
     @Override
     public int getItemCount() {
         return notes.size();

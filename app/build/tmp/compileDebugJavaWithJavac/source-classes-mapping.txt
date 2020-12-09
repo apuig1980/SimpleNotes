@@ -2,10 +2,9 @@ com/toni/notes/notes/NoteViewHolder.java
  com.toni.notes.notes.NoteViewHolder
 com/toni/notes/utils/PreferencesManager.java
  com.toni.notes.utils.PreferencesManager
-com/toni/notes/notes/NotesAdapter.java
- com.toni.notes.notes.NotesAdapter
- com.toni.notes.notes.NotesAdapter$1
- com.toni.notes.notes.NotesAdapter$2
+com/toni/notes/LoginActivity.java
+ com.toni.notes.LoginActivity
+ com.toni.notes.LoginActivity$1
 com/toni/notes/BuildConfig.java
  com.toni.notes.BuildConfig
 com/toni/notes/BaseActivity.java
@@ -16,13 +15,14 @@ com/toni/notes/notes/models/Note.java
  com.toni.notes.notes.models.Note
 com/toni/notes/utils/Constants.java
  com.toni.notes.utils.Constants
-com/toni/notes/notes/NotesActivity.java
- com.toni.notes.notes.NotesActivity
- com.toni.notes.notes.NotesActivity$1
-com/toni/notes/LoginActivity.java
- com.toni.notes.LoginActivity
- com.toni.notes.LoginActivity$1
 com/toni/notes/SplashActivity.java
  com.toni.notes.SplashActivity
  com.toni.notes.SplashActivity$1
  com.toni.notes.SplashActivity$2
+com/toni/notes/notes/NotesActivity.java
+ com.toni.notes.notes.NotesActivity
+ com.toni.notes.notes.NotesActivity$1
+com/toni/notes/notes/NotesAdapter.java
+ com.toni.notes.notes.NotesAdapter
+ com.toni.notes.notes.NotesAdapter$1
+ com.toni.notes.notes.NotesAdapter$2
