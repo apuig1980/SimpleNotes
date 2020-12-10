@@ -10,10 +10,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.toni.notes.R;
 import com.toni.notes.notes.models.Note;
 import com.toni.notes.utils.Constants;
+import com.toni.notes.utils.PreferencesManager;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
@@ -51,10 +55,20 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
             @Override
             public void onClick(View v) {
                 notes.remove(position);
+                SaveNotes();
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, notes.size());
             }
         });
+    }
+
+    private void SaveNotes() {
+        PreferencesManager prefs = new PreferencesManager(ctx);
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Note>>() {
+        }.getType();
+        String json = gson.toJson(notes, type);
+        prefs.setNotes(Constants.NOTES_LIST, json);
     }
 
 

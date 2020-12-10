@@ -3,7 +3,6 @@ package com.toni.notes.notes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.toni.notes.BaseActivity;
-import com.toni.notes.LoginActivity;
 import com.toni.notes.R;
 import com.toni.notes.notes.models.Note;
 import com.toni.notes.utils.Constants;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class NotesActivity extends BaseActivity {
     RecyclerView rvNotes;
@@ -37,10 +36,24 @@ public class NotesActivity extends BaseActivity {
     }
 
     private void populateNoteList() {
+       /*
         notes = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             notes.add(new Note("Pasear perro" + i, "Hace mucho tiempo que no sale"));
+        }*/
+        notes = new ArrayList<Note>();
+        String savedJsonNotes = prefs.getNotes(Constants.NOTES_LIST);
+        if (!savedJsonNotes.isEmpty()) {
+            Gson gson = new Gson();
+            Type type = new TypeToken<ArrayList<Note>>() {
+            }.getType();
+            ArrayList<Note> savedNotes = gson.fromJson(savedJsonNotes, type);
+
+            for (Note savedNote : savedNotes) {
+                notes.add(savedNote);
+            }
         }
+
     }
 
     private void initializeAddNoteButton() {
@@ -50,18 +63,20 @@ public class NotesActivity extends BaseActivity {
         btAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                notes.add(0, new Note("New Note", "Description"));
+                UUID noteId = UUID.randomUUID();
+                notes.add(0, new Note("New Note", "Description", noteId));
                 setRecyclerView();
                 saveNewNote();
             }
         });
     }
 
-    private void saveNewNote(){
+    private void saveNewNote() {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Note>>() {
         }.getType();
         String json = gson.toJson(notes, type);
+        prefs.setNotes(Constants.NOTES_LIST, json);
     }
 
     private void setRecyclerView() {

@@ -23,4 +23,15 @@ public class PreferencesManager {
         editor.putBoolean(key, value);
         editor.apply();
     }
+
+    public void setNotes(String key, String value){
+        SharedPreferences.Editor editor = ctx.getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public String getNotes(String key){
+        SharedPreferences prefs = ctx.getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
+        return prefs.getString(key, "");
+    }
 }
