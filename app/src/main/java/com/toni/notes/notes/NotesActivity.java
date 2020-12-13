@@ -1,6 +1,5 @@
 package com.toni.notes.notes;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -20,14 +19,12 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class NotesActivity extends BaseActivity {
-    RecyclerView rvNotes;
-    ArrayList<Note> notes;
+    private ArrayList<Note> notes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-
         populateNoteList();
 
         initializeAddNoteButton();
@@ -36,11 +33,6 @@ public class NotesActivity extends BaseActivity {
     }
 
     private void populateNoteList() {
-       /*
-        notes = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            notes.add(new Note("Pasear perro" + i, "Hace mucho tiempo que no sale"));
-        }*/
         notes = new ArrayList<Note>();
         String savedJsonNotes = prefs.getNotes(Constants.NOTES_LIST);
         if (!savedJsonNotes.isEmpty()) {
@@ -53,18 +45,16 @@ public class NotesActivity extends BaseActivity {
                 notes.add(savedNote);
             }
         }
-
     }
 
     private void initializeAddNoteButton() {
         ImageButton btAddNote = findViewById(R.id.ibAddNote);
 
-
         btAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UUID noteId = UUID.randomUUID();
-                notes.add(0, new Note("New Note", "Description", noteId));
+                notes.add(0, new Note(getString(R.string.defaultTitle), getString(R.string.defaultBody), noteId));
                 setRecyclerView();
                 saveNewNote();
             }
@@ -80,7 +70,7 @@ public class NotesActivity extends BaseActivity {
     }
 
     private void setRecyclerView() {
-        rvNotes = findViewById(R.id.rvNotes);
+        RecyclerView rvNotes = findViewById(R.id.rvNotes);
 
         NotesAdapter adapter = new NotesAdapter(notes, NotesActivity.this);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(NotesActivity.this);
@@ -90,25 +80,14 @@ public class NotesActivity extends BaseActivity {
         rvNotes.setHasFixedSize(true);
     }
 
-    /*private void showList()
-    {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setContentView(R.layout.activity_notes);
+        populateNoteList();
+
+        initializeAddNoteButton();
+
         setRecyclerView();
-
-        //setLogoutEvents();
-    }*/
-
-
-
-    /*private void setLogoutEvents() {
-        Button btLogout = findViewById(R.id.btLogout);
-
-        btLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefs.setPrefs(Constants.USER_LOGGED, false);
-                Intent intent = new Intent(NotesActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-    }*/
+    }
 }

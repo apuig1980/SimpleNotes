@@ -6,4 +6,6 @@ public class Constants {
     public static final String EXTRA_NOTE_TITLE = "extraNoteTitle";
     public static final String EXTRA_NOTE_BODY = "extraNoteBody";
     public static final String NOTES_LIST = "notes";
+    public static final String EXTRA_NOTES_LIST = "extraNotes";
+    public static final String EXTRA_ID = "noteId";
 }

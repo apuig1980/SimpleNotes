@@ -13,6 +13,13 @@ public class PreferencesManager {
         this.ctx = ctx;
     }
 
+    public void deleteAllPrefs(){
+        SharedPreferences prefs = ctx.getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
+        prefs.edit().clear().commit();
+        prefs.edit().apply();
+
+    }
+
     public boolean getPrefs(String key){
         SharedPreferences prefs = ctx.getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
         return prefs.getBoolean(key, false);

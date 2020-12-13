@@ -18,7 +18,7 @@
             android:id="@+id/tvNoteTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ESTE ES EL TÍTULO"
+            android:hint="@string/defaultTitle"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -26,7 +26,7 @@
             android:id="@+id/tvNoteBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Esta es la descipción de la nota"
+            android:hint="@string/defaultBody"
             android:textSize="12sp" />
 
         <LinearLayout

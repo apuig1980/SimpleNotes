@@ -38,6 +38,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
+
+        String title = notes.get(position).getTitle();
         holder.tvNoteTitle.setText(notes.get(position).getTitle());
         holder.tvNoteBody.setText(notes.get(position).getBody());
 
@@ -45,8 +47,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ctx, DetailNoteActivity.class);
-                intent.putExtra(Constants.EXTRA_NOTE_TITLE, notes.get(position).getTitle());
-                intent.putExtra(Constants.EXTRA_NOTE_BODY, notes.get(position).getBody());
+                intent.putExtra(Constants.EXTRA_ID, notes.get(position).getId());
                 ctx.startActivity(intent);
             }
         });
