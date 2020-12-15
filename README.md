@@ -12,7 +12,7 @@ Next features:
   
   3 - ~~Edit Notes text~~
 	
-  4 - Persist notes
+  4 - ~~Persist notes~~
 	
   5 - Register creation date
   
