@@ -21,7 +21,7 @@ public class Note {
         return body;
     }
 
-    public String getId() { return id.toString(); }
+    public String getId() { return id; }
 
     public void setTitle(String title){ this.title = title; }
 

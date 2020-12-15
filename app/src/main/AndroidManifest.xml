@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".notes.DetailNoteActivity" />
+        <activity android:name=".services.Service" />
     </application>
 
 </manifest>
