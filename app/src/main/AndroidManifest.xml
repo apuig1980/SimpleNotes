@@ -19,6 +19,10 @@
         </activity>
         <activity android:name=".notes.DetailNoteActivity" />
         <activity android:name=".services.Service" />
+        <!-- AdMob settings -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3168482358398539~9545899526"/>
     </application>
 
 </manifest>

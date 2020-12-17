@@ -40,7 +40,6 @@ public class DetailNoteActivity extends BaseActivity
         setDefaultTexts(currentTitle, currentBody);
 
 
-        //TODO mejorar el funcionamiento, saltan los dos métodos??
         tvNoteTitle.setOnFocusChangeListener(new View.OnFocusChangeListener()
         {
             @Override

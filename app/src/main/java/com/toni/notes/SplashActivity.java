@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.toni.notes.notes.NotesActivity;
-import com.toni.notes.utils.Constants;
 
 import java.util.Timer;
 import java.util.TimerTask;
