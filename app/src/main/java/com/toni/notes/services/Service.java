@@ -15,15 +15,9 @@ public class Service
 {
     public static class PersistenceService extends AppCompatActivity
     {
-        private static Gson gson;
-
-        public PersistenceService()
-        {
-            gson = new Gson();
-        }
-
         public static ArrayList<Note> getNotes(PreferencesManager prefs)
         {
+            Gson gson = new Gson();
             String savedJsonNotes = prefs.getNotes(Constants.NOTES_LIST);
             Type type = new TypeToken<ArrayList<Note>>(){}.getType();
             return gson.fromJson(savedJsonNotes, type);

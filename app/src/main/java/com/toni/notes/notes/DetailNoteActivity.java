@@ -7,15 +7,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.toni.notes.BaseActivity;
 import com.toni.notes.R;
 import com.toni.notes.notes.models.Note;
 import com.toni.notes.services.Service;
 import com.toni.notes.utils.Constants;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class DetailNoteActivity extends BaseActivity
@@ -40,7 +37,7 @@ public class DetailNoteActivity extends BaseActivity
         String currentTitle = currentNote.getTitle();
         String currentBody = currentNote.getBody();
 
-        SetDefaultTexts(currentTitle, currentBody);
+        setDefaultTexts(currentTitle, currentBody);
 
 
         //TODO mejorar el funcionamiento, saltan los dos métodos??
@@ -49,21 +46,28 @@ public class DetailNoteActivity extends BaseActivity
             @Override
             public void onFocusChange(View v, boolean hasFocus)
             {
-                saveNote(noteId, tvNoteTitle.getText().toString(), tvNoteBody.getText().toString());
+                if (!hasFocus)
+                {
+                    saveNote(noteId, tvNoteTitle.getText().toString(), tvNoteBody.getText().toString());
+                }
             }
         });
+
 
         tvNoteBody.setOnFocusChangeListener(new View.OnFocusChangeListener()
         {
             @Override
             public void onFocusChange(View v, boolean hasFocus)
             {
-                saveNote(noteId, tvNoteTitle.getText().toString(), tvNoteBody.getText().toString());
+                if(!hasFocus)
+                {
+                    saveNote(noteId, tvNoteTitle.getText().toString(), tvNoteBody.getText().toString());
+                }
             }
         });
     }
 
-    private void SetDefaultTexts(String currentTitle, String currentBody)
+    private void setDefaultTexts(String currentTitle, String currentBody)
     {
         if (!currentTitle.equals(getString(R.string.defaultTitle)))
         {

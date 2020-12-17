@@ -21,7 +21,6 @@ import java.util.UUID;
 
 public class NotesActivity extends BaseActivity
 {
-
     private ArrayList<Note> notes;
 
     @Override
@@ -41,7 +40,8 @@ public class NotesActivity extends BaseActivity
 
         if (!savedJsonNotes.isEmpty())
         {
-            ArrayList<Note> savedNotes = Service.PersistenceService.getNotes(prefs);
+            ArrayList<Note> savedNotes = new ArrayList<Note>();
+            savedNotes = Service.PersistenceService.getNotes(prefs);
 
             for (Note savedNote : savedNotes)
             {
