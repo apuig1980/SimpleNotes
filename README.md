@@ -13,9 +13,7 @@ Next features:
   3 - ~~Edit Notes text~~
 	
   4 - ~~Persist notes~~
-	
-  5 - Register creation date
-  
-  6 - Code Refactor
+	  
+  5 - ~~Code Refactor~~
 	
   6 - Add ads to application
