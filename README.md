@@ -16,4 +16,4 @@ Next features:
 	  
   5 - ~~Code Refactor~~
 	
-  6 - Add ads to application
+  6 - ~~Add ads to application~~
